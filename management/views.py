@@ -7,7 +7,7 @@ from rest_framework.utils import json
 from django.http import HttpResponse, HttpRequest
 from .models import *
 from .forms import CustomerForm, AddressForm, CarForm
-# Create your views here.
+
 
 @api_view(['GET'])
 def getadminhealth(requests):
@@ -44,5 +44,5 @@ def save_form(request):
     customer =  Customer(first_name=fname, last_name=lname, age=age, date_of_birth=dob, email=email, phone=phone, address=address)
     customer.save()
     car = Car(model_name=model_name, manufacturing_date=manufacturing_date, manufacturer=manufacturer, color=color, customer=customer)
-    
+
     return Response("data stored successfully", status=200)
